@@ -276,10 +276,11 @@ var engine = {
             }
         } else {
             var proxyids = handler.proxy[evt];
+	    var that = this;
             if (proxyids && proxyids.length) {
                 proxyids.forEach(function(proxyid) {
                     if (el.removeEventListener) {
-                        el.removeEventListener(evt, this.proxies[this.proxyid], false);
+                        el.removeEventListener(evt, that.proxies[proxyid], false);
                     }
                 });
             }
@@ -351,10 +352,11 @@ var engine = {
             });
         } else {
             var proxyids = handler.proxy[evt];
+	    var that = this;
             if (proxyids.length) {
                 proxyids.forEach(function(proxyid) {
                     if (el.removeEventListener) {
-                        el.removeEventListener(evt, this.proxies[this.proxyid], false);
+                        el.removeEventListener(evt, that.proxies[proxyid], false);
                     }
                 });
             }
